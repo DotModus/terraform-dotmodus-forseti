@@ -20,7 +20,7 @@ echo "Forseti Startup - Updating Ubuntu."
 sudo apt-get update -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 sudo apt-get update -y
-sudo apt-get --assume-yes install git unzip
+sudo apt-get --assume-yes install git unzip jq
 
 if ! [ -e "/usr/sbin/google-fluentd" ]; then
   echo "Forseti Startup - Installing GCP Logging agent."
@@ -54,10 +54,10 @@ echo "Forseti Startup - Installing Forseti linux dependencies."
 sudo apt-get install -y $(cat install/dependencies/apt_packages.txt | grep -v "#" | xargs)
 sudo apt install python3.8 python3.9 python3.10 python3.7 python3-testresources curl build-essential git libffi-dev libssl-dev default-libmysqlclient-dev libpython3-dev python3-pip python3-dev unzip wget cron
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 4
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 5
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 3
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 4
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 5
 
 # Forseti dependencies
 echo "Forseti Startup - Installing Forseti python dependencies."

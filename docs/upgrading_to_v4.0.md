@@ -16,7 +16,7 @@ The `inventory_email_summary_enabled` field now has a default value of `false`,
 instead of the previous default of `true`. It also now requires
 `sendgrid_api_key` to be set to a non empty value. Without this Forseti will
 not be able to successfully send emails. See
-[forseti-security#3005](https://github.com/forseti-security/forseti-security/issues/3005).
+[forseti-security#3005](https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git/issues/3005).
 
 To continue sending inventory summary emails, update a Terraform
 configuration like the following example:

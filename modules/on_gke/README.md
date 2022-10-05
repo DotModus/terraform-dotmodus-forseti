@@ -82,7 +82,7 @@ This sub-module deploys Forseti on GKE.  In short, this deploys a server contain
 | forseti\_email\_recipient | Email address that receives Forseti notifications | string | `""` | no |
 | forseti\_email\_sender | Email address that sends the Forseti notifications | string | `""` | no |
 | forseti\_home | Forseti installation directory | string | `"$USER_HOME/forseti-security"` | no |
-| forseti\_repo\_url | Git repo for the Forseti installation | string | `"https://github.com/forseti-security/forseti-security"` | no |
+| forseti\_repo\_url | Git repo for the Forseti installation | string | `"https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git"` | no |
 | forseti\_run\_frequency | Schedule of running the Forseti scans | string | `"null"` | no |
 | forseti\_version | The version of Forseti to install | string | `"v2.25.2"` | no |
 | forwarding\_rule\_enabled | Forwarding rule scanner enabled. | bool | `"false"` | no |

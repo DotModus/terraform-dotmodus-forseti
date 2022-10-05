@@ -1,1 +1,1 @@
-# This project is governed by the [Forseti-Security](https://github.com/forseti-security/forseti-security) project [governace](https://github.com/forseti-security/forseti-security/blob/master/GOVERNANCE.md) guidelines.
+# This project is governed by the [Forseti-Security](https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git) project [governace](https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git/blob/master/GOVERNANCE.md) guidelines.

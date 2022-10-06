@@ -28,7 +28,7 @@ variable "forseti_version" {
 
 variable "forseti_repo_url" {
   description = "Git repo for the Forseti installation"
-  default     = "https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git"
+  default     = "https://github.com/forseti-security/forseti-security"
 }
 
 variable "forseti_home" {

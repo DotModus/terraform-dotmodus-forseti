@@ -52,8 +52,6 @@ cd forseti-security
 # Forseti host dependencies
 echo "Forseti Startup - Installing Forseti linux dependencies."
 sudo apt-get install -y python3.8 python3.9 python3-testresources curl build-essential git libffi-dev libssl-dev default-libmysqlclient-dev libpython3-dev python3-pip python3-dev unzip wget cron
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3
 
 # Forseti dependencies
 echo "Forseti Startup - Installing Forseti python dependencies."

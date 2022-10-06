@@ -46,12 +46,12 @@ fi
 
 # Download Forseti source code
 echo "Forseti Startup - Cloning Forseti repo."
-git clone --branch ${forseti_version} --depth 1 https://Eric-Dev-Live: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@github.com/Eric-Dev-Live/forseti-security.git
+git clone --branch ${forseti_version} --depth 1 ${forseti_repo_url}
 cd forseti-security
 
 # Forseti host dependencies
 echo "Forseti Startup - Installing Forseti linux dependencies."
-sudo apt-get install -y python3-testresources curl build-essential git libffi-dev libssl-dev default-libmysqlclient-dev libpython3-dev python3-pip python3-dev unzip wget cron
+sudo apt-get install -y $(cat install/dependencies/apt_packages.txt | grep -v "#" | xargs)
 
 # Forseti dependencies
 echo "Forseti Startup - Installing Forseti python dependencies."
@@ -136,14 +136,11 @@ fi
 echo "Forseti Startup - Starting services."
 bash ./install/gcp/scripts/initialize_forseti_services.sh
 systemctl start cloudsqlproxy
-systemctl enable cloudsqlproxy
 if [ "${policy_library_sync_enabled}" == "true" ]; then
   systemctl start policy-library-sync
-  systemctl enable policy-library-sync
   sleep 5
 fi
 systemctl start config-validator
-systemctl enable config-validator
 sleep 5
 
 echo "Forseti Startup - Attempting to update database schema, if necessary."
@@ -152,7 +149,6 @@ python3 $USER_HOME/forseti-security/install/gcp/upgrade_tools/db_migrator.py
 # Enable and start main Forseti service immediately
 echo "Forseti Startup - Enabling and starting Forseti service."
 systemctl enable --now forseti
-systemctl enable forseti
 echo "Forseti Startup - Success! The Forseti API server has been enabled and started."
 
 # Increase Open File Limit
@@ -171,9 +167,7 @@ fi
 # Create a Forseti env script
 FORSETI_ENV="$(cat << EOF
 #!/bin/bash
-
 export PATH=$PATH:/usr/local/bin
-
 # Forseti environment variables
 ${forseti_environment}
 EOF
